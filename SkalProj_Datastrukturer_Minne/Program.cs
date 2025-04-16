@@ -42,7 +42,7 @@ namespace SkalProj_Datastrukturer_Minne
                         ExamineStack();
                         break;
                     case '4':
-                        CheckParanthesis();
+                        CheckParenthesis();
                         break;
                     /*
                      * Extend the menu to include the recursive 
@@ -124,8 +124,7 @@ namespace SkalProj_Datastrukturer_Minne
             */
             Queue<string> customers = new Queue<string>();
             string input;
-         //   Console.WriteLine($"Capacity: {customers..Capacity}");
-
+        
             do
             {
                 Console.WriteLine("Enter +name to enqueue a customer. Enter - to dequeue. Type anything to list customers. Exit with 0");
@@ -167,8 +166,7 @@ namespace SkalProj_Datastrukturer_Minne
             */
             Stack<string> customers = new Stack<string>();
             string input;
-            //   Console.WriteLine($"Capacity: {customers..Capacity}");
-
+           
             do
             {
                 Console.WriteLine("Enter +name to put a customer on the stack. Enter - to remove the last customer from the stack. Exit with 0");
@@ -215,11 +213,10 @@ namespace SkalProj_Datastrukturer_Minne
                     inputString.Pop();
                 }
                 Console.WriteLine(sb.ToString());
-            }
-            
+            }            
         }
 
-        static void CheckParanthesis()
+        static void CheckParenthesis()
         {
             /*
              * Use this method to check if the paranthesis in a string is Correct or incorrect.
@@ -227,103 +224,30 @@ namespace SkalProj_Datastrukturer_Minne
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
 
-
-            //Console.Write('(');
-            //Console.WriteLine(RightParanthesis('('));
-            //Console.Write('{');
-            //Console.WriteLine(RightParanthesis('{'));
-            //Console.Write('[');
-            //Console.WriteLine(RightParanthesis('['));
-            //Console.Write('<');
-            //Console.WriteLine(RightParanthesis('<'));
-            //Console.ReadLine();
-            //     string inputString = Console.ReadLine();
-            //string inputString = "((so)le(n}skiner({[<)";
-            //Console.WriteLine(inputString);
-            //  string inputStringParanthesis = ExtractParanthesis(inputString);
-            //  List<char> parentheses = new List<char>(ExtractParanthesis(inputString));
-
-
-            //foreach (char c in inputString)
-            //{
-            //    Console.Write(c);
-            //    Console.WriteLine(RightParanthesis(c));
-            //}
-            //Console.WriteLine(inputString);
-
-            //Console.WriteLine(ExtractParanthesis(inputString));
-
-            //================================================
-            //kollar och tar bort den yttesta parentesen
-            //Console.ReadLine();
-            //if (parentheses.Last() == RightParenthesis(parentheses.First()))
-            //{
-            //    Console.WriteLine("Välformad! (så långt iaf)");
-            //    parentheses.RemoveAt(0);
-            //    parentheses.RemoveAt(parentheses.Count - 1);
-
-            //    foreach (char c in parentheses)
-            //    {
-            //        Console.Write(c);
-            //    }
-            //}
-            //else
-            //    Console.WriteLine("Icke välformad :(");
-            //================================================
-
-            //string inputString = "((so)le(n}skiner({[<)"; //ej välformad
-            //string inputString = "()solenskiner"; //välformad
-            //string inputString = "()(solenskiner)"; //ej välformad men borde vara det
-            //string inputString = "([{}]({}))"; //ej välformad men borde vara det
-
-            //string inputString = "(a){b}[c]";
-            //StackParentheses(inputString);
-            //inputString = "((so)le(n}skiner({[<)"; //ej välformad
-            //StackParentheses(inputString);
-            //inputString = "()solenskiner"; //välformad
-            //StackParentheses(inputString);
-            //inputString = "()(solenskiner)"; //ej välformad men borde vara det
-            //StackParentheses(inputString);
-            //inputString = "[{}]({})"; //ej välformad men borde vara det
-            //StackParentheses(inputString);
-            //inputString = "[{}]{}"; 
-            //StackParentheses(inputString);
-            //inputString = "([{ }]({ }))";
-            //StackParentheses(inputString);
-            //inputString = "List<int> lista = new List<int>() { 2, 3, 4 };";
-            //StackParentheses(inputString);
-            Console.Write("Please enter a string that you want to know if it's well shaped or not: ");
-            string inputString = Console.ReadLine();
+            string inputString = "(a){b}[c]";
             StackParentheses(inputString);
-
-
-            //    do
-            //    {
-            //        PrintCharList(parentheses);
-            //        if (parentheses.Last() == RightParenthesis(parentheses.First()))
-            //        {
-            //       //     Console.WriteLine(" Välformad!");
-            //            parentheses.RemoveAt(0);
-            //            parentheses.RemoveAt(parentheses.Count - 1);
-            //        }
-            //        else if (parentheses.ElementAt(1) == RightParenthesis(parentheses.ElementAt(0)))
-            //        {
-            //            parentheses.RemoveAt(0);
-            //            parentheses.RemoveAt(0);
-            //        }
-            //        else
-            //        {                    
-            //            Console.WriteLine(" Inte välformad");
-            //            break;
-            //        }
-
-            //    } while (parentheses.Count > 0);
+            inputString = "((so)le(n}skiner({[<)"; //ej välformad
+            StackParentheses(inputString);
+            inputString = "()solenskiner"; //välformad
+            StackParentheses(inputString);
+            inputString = "()(solenskiner)"; //välformad 
+            StackParentheses(inputString);
+            inputString = "[{}]({})";     //välformad
+            StackParentheses(inputString);
+            inputString = "[{}]{}";
+            StackParentheses(inputString);
+            inputString = "([{ }]({ }))";
+            StackParentheses(inputString);
+            inputString = "List<int> lista = new List<int>() { 2, 3, 4 };";
+            StackParentheses(inputString);
+            Console.Write("Please enter a string that you want to know if it's well shaped or not: ");
+            inputString = Console.ReadLine();
+            StackParentheses(inputString);
         }
 
         private static void StackParentheses(string inputString)
         {
-            Console.WriteLine(inputString);
-            //  List<char> parentheses = new(ExtractParanthesis(inputString));
+            Console.WriteLine(inputString);            
             string parenthesesExtracted = ExtractParenthesis(inputString);
             Stack<char> chars = new Stack<char>();
             bool wellShaped = true;
@@ -333,29 +257,22 @@ namespace SkalProj_Datastrukturer_Minne
                     chars.Push(c);
                 else if (">)]}".Contains(c))
                 {
-                    if (c != RightParenthesis(chars.First()))
-                    {
-                        wellShaped = false;
+                    if (chars.Count > 0)
+                    {                        
+                        if (c == RightParenthesis(chars.First()))
+                        {
+                            chars.Pop();
+                        }                        
                     }
-
-                    else
-                        chars.Pop();
+                    else wellShaped = false; //högerparenteser kvar i parenthesesExtracted efter att alla vänterparenteser poppats, så ej välformad
                 }
             }
-            if (chars.Count > 0) wellShaped = false; 
+            if (chars.Count > 0) wellShaped = false; //om inte alla tecken har poppats så finns det vänsterparenteser kvar, ej välformad
             if (wellShaped)
                 Console.WriteLine("Well shaped!");
             else Console.WriteLine("Not well shaped...");
             Console.ReadLine();
-        }
-
-        private static void PrintCharList(List<char> parentheses)
-        {
-            foreach (char c in parentheses)
-            {
-                Console.Write(c);
-            }
-        }
+        }            
 
         static string ExtractParenthesis(string input)
         {
@@ -369,8 +286,7 @@ namespace SkalProj_Datastrukturer_Minne
             return sb.ToString();
         }
         static char RightParenthesis(char left)
-        {
-            char right;
+        {            
             switch (left)
             {
                 case '(':
@@ -386,8 +302,7 @@ namespace SkalProj_Datastrukturer_Minne
                     return '>';
                     
                 default: //inte en parentes
-                    return 'X';
-                    
+                    return 'X';                    
             }
         }
     }
