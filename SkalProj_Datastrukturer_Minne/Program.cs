@@ -227,8 +227,63 @@ namespace SkalProj_Datastrukturer_Minne
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
 
-        }
 
+            //Console.Write('(');
+            //Console.WriteLine(RightParanthesis('('));
+            //Console.Write('{');
+            //Console.WriteLine(RightParanthesis('{'));
+            //Console.Write('[');
+            //Console.WriteLine(RightParanthesis('['));
+            //Console.Write('<');
+            //Console.WriteLine(RightParanthesis('<'));
+            //Console.ReadLine();
+            //     string inputString = Console.ReadLine();
+            string inputString = "((so)le(n}skiner({[<";
+            string inputStringParanthesis = ExtractParanthesis(inputString);
+            
+            //foreach (char c in inputString)
+            //{
+            //    Console.Write(c);
+            //    Console.WriteLine(RightParanthesis(c));
+            //}
+            Console.WriteLine(inputString);
+
+            Console.WriteLine(ExtractParanthesis(inputString));
+            Console.ReadLine();
+        }
+        static string ExtractParanthesis(string input)
+        {
+            StringBuilder sb = new StringBuilder();
+            string paranthesis = "(){}[]<>";
+            foreach (char c in input)
+            {
+                if (paranthesis.Contains(c))
+                    sb.Append(c);
+            }
+            return sb.ToString();
+        }
+        static char RightParanthesis(char left)
+        {
+            char right;
+            switch (left)
+            {
+                case '(':
+                    return ')';
+                   
+                case '{':
+                    return '}';
+                    
+                case '[':
+                    return ']';
+                    
+                case '<':
+                    return '>';
+                    
+                default: //inte en parentes
+                    return 'X';
+                    
+            }
+        }
     }
 }
 
