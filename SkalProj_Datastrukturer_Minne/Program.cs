@@ -1,4 +1,19 @@
-﻿using System;
+﻿/* SVAR PÅ FRÅGA 1-3
+1. Stacken är en trave eller stapel med minnespositioner, som kan lagra värden, eller adresser till heapen. Ordnad men långsam, man måste "lyfta av" minnespositioner för att komma åt den 
+man är ute efter..Heapen är en mer oordnad samling av minnespositioner, men åtkomsten till dessa är snabb när man vet adressen till vad man letar efter. Heapen kräver garbage collection,
+stacken håller ordning på sig själv.
+2. En variabel av value type lagras på antingen stacken eller heapen och innehåller ett värde. För en variabel av reference type så sparas adressen till variabeln på stacken. 
+Adressen pekar ut en minnesposition på heapen där värdet är lagrat. 
+3. x och y är av värdetypen int. De sparas i det första exemplet på stacken som de är deklarerade. Y är en ny variabel som tilldelas samma värde som x. Men den har en egen minnesplats 
+på stacken. När y ändras till 4 så är x fortfarande 3. 
+I det andra exemplet är MyInt en klass, alltså en referenstyp. MyValue är en int, värdetyp, men ingår i ett objekt och sparas därför på heapen. x innehåller en minnesadress på heapen 
+som innehåller värdet 3. När y sätts till x så får x och y samma innehåll: minnesadressen på heapen. När y.MyValue (som sparas på heapen) sätts till 4 ändras också x.MyValue till 4 
+eftersom det är samma minnesposition. 
+
+Svaren på frågorna till ExamineList och ExamineStack finns i kommentarerna vid resp metod.
+ */
+
+
 using System.Text;
 
 namespace SkalProj_Datastrukturer_Minne
@@ -72,7 +87,7 @@ namespace SkalProj_Datastrukturer_Minne
              * As a default case, tell them to use only + or -
              * Below you can see some inspirational code to begin working.
             */
-            /*
+            /*  SVAR PÅ FRÅGA 2-6
                 2. Listans kapacitet ökar när man lägger till ett element som gör att den nuvarande kapaciteten överskrids
                 3. Den fördubblas
                 4. Killgissning eller om det var för att Pontus sa det förra veckan: att utöka kapaciteten varje gång vore en onödigt resurskrävande (CPU-cykler) operation. 
@@ -88,7 +103,7 @@ namespace SkalProj_Datastrukturer_Minne
             do 
             {
                 Console.WriteLine("Enter a string that begins with + or -. Exit with 0");
-                input = Console.ReadLine();
+                input =  Util.AskForString("string");
                 char nav = input[0];
                 string value = input.Substring(1);
                                
@@ -128,7 +143,7 @@ namespace SkalProj_Datastrukturer_Minne
             do
             {
                 Console.WriteLine("Enter +name to enqueue a customer. Enter - to dequeue. Type anything to list customers. Exit with 0");
-                input = Console.ReadLine();
+                input = Util.AskForString("string");
                 char nav = input[0];
                 string value = input.Substring(1);
 
@@ -164,13 +179,18 @@ namespace SkalProj_Datastrukturer_Minne
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
+            /*
+            SVAR PÅ FRÅGA 1: Den som är först i kön blir inte betjänad förrän han är ensam i kön. Dvs alla som kommer efter blir betjänade före 
+            (sist blir betjänad först, sedan den som var näst sist osv)            
+            */
+
             Stack<string> customers = new Stack<string>();
             string input;
            
             do
             {
                 Console.WriteLine("Enter +name to put a customer on the stack. Enter - to remove the last customer from the stack. Exit with 0");
-                input = Console.ReadLine();
+                input = Util.AskForString("string");
                 char nav = input[0];
                 string value = input.Substring(1);
 
@@ -194,7 +214,7 @@ namespace SkalProj_Datastrukturer_Minne
                 Console.WriteLine();
             } while (input != "0");
             Console.Write("Now enter a string that I will reverse for you: ");
-            ReverseText(Console.ReadLine());
+            ReverseText(Util.AskForString("string"));
         }
 
         private static void ReverseText(string? v)
@@ -241,7 +261,7 @@ namespace SkalProj_Datastrukturer_Minne
             inputString = "List<int> lista = new List<int>() { 2, 3, 4 };";
             StackParentheses(inputString);
             Console.Write("Please enter a string that you want to know if it's well shaped or not: ");
-            inputString = Console.ReadLine();
+            inputString = Util.AskForString("string");
             StackParentheses(inputString);
         }
 
@@ -259,7 +279,7 @@ namespace SkalProj_Datastrukturer_Minne
                 {
                     if (chars.Count > 0)
                     {                        
-                        if (c == RightParenthesis(chars.First()))
+                        if (c == RightParenthesis(chars.Peek())) //Peek returnerar den översta/senaste vänsterparentesen i stacken
                         {
                             chars.Pop();
                         }                        
